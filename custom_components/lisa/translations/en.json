@@ -308,6 +308,15 @@
           },
           "status": {
             "name": "Status"
+          },
+          "home_logo": {
+            "name": "Home club logo"
+          },
+          "away_logo": {
+            "name": "Away club logo"
+          },
+          "opponent_logo": {
+            "name": "Opponent logo"
           }
         }
       },
@@ -410,6 +419,15 @@
           },
           "status": {
             "name": "Status"
+          },
+          "home_logo": {
+            "name": "Home club logo"
+          },
+          "away_logo": {
+            "name": "Away club logo"
+          },
+          "opponent_logo": {
+            "name": "Opponent logo"
           }
         }
       },
@@ -524,6 +542,18 @@
           },
           "trainers": {
             "name": "Trainers"
+          },
+          "home_logo": {
+            "name": "Home club logo"
+          },
+          "away_logo": {
+            "name": "Away club logo"
+          },
+          "opponent_logo": {
+            "name": "Opponent logo"
+          },
+          "upcoming": {
+            "name": "Coming two weeks"
           }
         }
       },
@@ -674,9 +704,9 @@
       "next_training_presence": {
         "name": "Attendance next training",
         "state": {
-          "unknown": "Not given",
           "present": "Present",
-          "absent": "Absent"
+          "absent": "Absent",
+          "not_given": "Not given"
         },
         "state_attributes": {
           "activity_id": {
@@ -702,9 +732,9 @@
       "next_match_presence": {
         "name": "Attendance next match",
         "state": {
-          "unknown": "Not given",
           "present": "Present",
-          "absent": "Absent"
+          "absent": "Absent",
+          "not_given": "Not given"
         },
         "state_attributes": {
           "activity_id": {

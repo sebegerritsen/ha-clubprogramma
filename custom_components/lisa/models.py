@@ -182,6 +182,9 @@ class Tile:
     umpires: tuple[str, ...] = ()
     trainers: tuple[str, ...] = ()
     team_event_id: str | None = None
+    home_logo: str | None = None
+    away_logo: str | None = None
+    opponent_logo: str | None = None
 
     @property
     def key(self) -> str:
@@ -265,6 +268,9 @@ class Tile:
                 score_home=score[0],
                 score_away=score[1],
                 alternate_kit=_bool(body.get("alternate_kit")),
+                home_logo=_str(body.get("home_club_logo")),
+                away_logo=_str(body.get("away_club_logo")),
+                opponent_logo=_str(body.get("opponent_club_logo")),
                 tasks=_names(_list(body.get("tasks"))),
                 umpires=_names(_list(body.get("match_umpires"))),
             )

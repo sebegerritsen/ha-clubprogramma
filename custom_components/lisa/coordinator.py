@@ -109,6 +109,17 @@ class LisaData:
             None,
         )
 
+    def coming(self, member_id: str, now: datetime) -> list[Tile]:
+        """Return the member's activities from now until two weeks ahead, cancelled included."""
+        until = now + PRESENCE_AHEAD
+        return [
+            tile
+            for tile in self.activities(member_id)
+            if tile.start is not None
+            and (tile.expected_end or tile.start) > now
+            and tile.start <= until
+        ]
+
     def next_of(self, member_id: str, kind: str, now: datetime) -> Tile | None:
         """Return the member's current or next activity of one kind."""
         return next(iter(self.upcoming(member_id, kind, now)), None)

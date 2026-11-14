@@ -19,6 +19,15 @@ from .coordinator import LisaConfigEntry, LisaCoordinator, LisaData
 from .entity import LisaMemberEntity
 from .models import PRESENCE_ABSENT, PRESENCE_PRESENT, PRESENCE_UNKNOWN, Tile
 
+# "unknown" is a reserved state in Home Assistant; LISA's unknown shows as "not given".
+NOT_GIVEN = "not_given"
+TO_OPTION = {
+    PRESENCE_UNKNOWN: NOT_GIVEN,
+    PRESENCE_PRESENT: PRESENCE_PRESENT,
+    PRESENCE_ABSENT: PRESENCE_ABSENT,
+}
+TO_STATUS = {option: status for status, option in TO_OPTION.items()}
+
 PARALLEL_UPDATES = 1
 
 
@@ -68,7 +77,7 @@ class LisaPresenceSelect(LisaMemberEntity, SelectEntity):
         """Initialize the select."""
         super().__init__(coordinator, member_id, description.key)
         self.entity_description = description
-        self._attr_options = [PRESENCE_UNKNOWN, PRESENCE_PRESENT, PRESENCE_ABSENT]
+        self._attr_options = [NOT_GIVEN, PRESENCE_PRESENT, PRESENCE_ABSENT]
 
     def _tile(self) -> Tile | None:
         return self.entity_description.tile_fn(
@@ -85,7 +94,7 @@ class LisaPresenceSelect(LisaMemberEntity, SelectEntity):
     def current_option(self) -> str | None:
         """Return the member's answer."""
         tile = self._tile()
-        return tile.presence if tile and tile.presence in self._attr_options else None
+        return TO_OPTION.get(tile.presence or "") if tile else None
 
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
@@ -104,4 +113,4 @@ class LisaPresenceSelect(LisaMemberEntity, SelectEntity):
     async def async_select_option(self, option: str) -> None:
         """Say in LISA whether the member comes."""
         if (tile := self._tile()) is not None:
-            await self.coordinator.async_set_presence(self.member_id, tile.id, option)
+            await self.coordinator.async_set_presence(self.member_id, tile.id, TO_STATUS[option])

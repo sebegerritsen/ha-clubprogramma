@@ -22,6 +22,8 @@ from .entity import LisaMemberEntity
 from .models import KIND_DUTY, KIND_MATCH, KIND_REFEREE, KIND_TRAINING, Tile
 
 PARALLEL_UPDATES = 0
+# Activities listed in the next activity's `upcoming`.
+UPCOMING_MAX = 25
 
 
 def _iso(moment: datetime | None) -> str | None:
@@ -71,6 +73,9 @@ def match_attributes(tile: Tile | None) -> dict[str, Any]:
         "opponent": tile.opponent,
         "home_away": None if tile.is_home is None else "home" if tile.is_home else "away",
         "alternate_kit": tile.alternate_kit,
+        "home_logo": tile.home_logo,
+        "away_logo": tile.away_logo,
+        "opponent_logo": tile.opponent_logo,
         "tasks": list(tile.tasks),
         "umpires": list(tile.umpires),
         "status": tile.status,
@@ -86,6 +91,34 @@ def any_attributes(tile: Tile | None) -> dict[str, Any]:
     if tile.kind == KIND_TRAINING:
         return training_attributes(tile)
     return activity_attributes(tile)
+
+
+def coming_attributes(data: LisaData, member_id: str, now: datetime) -> dict[str, Any]:
+    """Return the next activity, and everything in the coming two weeks (for dashboards)."""
+    return {
+        **any_attributes(data.next_activity(member_id, now)),
+        "upcoming": [
+            {
+                "activity_id": tile.id,
+                "kind": tile.kind,
+                "title": tile.title,
+                "team": tile.team,
+                "start": _iso(tile.start),
+                "end": _iso(tile.expected_end),
+                "meeting_time": _iso(tile.meeting_time),
+                "location": tile.location,
+                "pitch": tile.pitch,
+                "cancelled": tile.cancelled,
+                "presence": tile.presence,
+                "can_change_presence": tile.can_change_presence,
+                "is_home": tile.is_home,
+                "opponent": tile.opponent,
+                "role": "staff" if tile.is_staff else "player" if tile.is_player else None,
+                "staff_roles": list(tile.roles),
+            }
+            for tile in data.coming(member_id, now)[:UPCOMING_MAX]
+        ],
+    }
 
 
 def todo_attributes(tiles: list[Tile]) -> dict[str, Any]:
@@ -118,7 +151,7 @@ SENSORS: tuple[LisaSensorDescription, ...] = (
         translation_key="next_activity",
         device_class=SensorDeviceClass.TIMESTAMP,
         value_fn=lambda d, m, now: (t := d.next_activity(m, now)) and t.start,
-        attributes_fn=lambda d, m, now: any_attributes(d.next_activity(m, now)),
+        attributes_fn=coming_attributes,
     ),
     LisaSensorDescription(
         key="next_training",

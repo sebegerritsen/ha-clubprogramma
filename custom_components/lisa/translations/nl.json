@@ -308,6 +308,15 @@
           },
           "status": {
             "name": "Status"
+          },
+          "home_logo": {
+            "name": "Logo thuisclub"
+          },
+          "away_logo": {
+            "name": "Logo uitclub"
+          },
+          "opponent_logo": {
+            "name": "Logo tegenstander"
           }
         }
       },
@@ -410,6 +419,15 @@
           },
           "status": {
             "name": "Status"
+          },
+          "home_logo": {
+            "name": "Logo thuisclub"
+          },
+          "away_logo": {
+            "name": "Logo uitclub"
+          },
+          "opponent_logo": {
+            "name": "Logo tegenstander"
           }
         }
       },
@@ -524,6 +542,18 @@
           },
           "trainers": {
             "name": "Trainers"
+          },
+          "home_logo": {
+            "name": "Logo thuisclub"
+          },
+          "away_logo": {
+            "name": "Logo uitclub"
+          },
+          "opponent_logo": {
+            "name": "Logo tegenstander"
+          },
+          "upcoming": {
+            "name": "Komende twee weken"
           }
         }
       },
@@ -674,9 +704,9 @@
       "next_training_presence": {
         "name": "Aanwezigheid volgende training",
         "state": {
-          "unknown": "Niet doorgegeven",
           "present": "Aanwezig",
-          "absent": "Afwezig"
+          "absent": "Afwezig",
+          "not_given": "Niet doorgegeven"
         },
         "state_attributes": {
           "activity_id": {
@@ -702,9 +732,9 @@
       "next_match_presence": {
         "name": "Aanwezigheid volgende wedstrijd",
         "state": {
-          "unknown": "Niet doorgegeven",
           "present": "Aanwezig",
-          "absent": "Afwezig"
+          "absent": "Afwezig",
+          "not_given": "Niet doorgegeven"
         },
         "state_attributes": {
           "activity_id": {

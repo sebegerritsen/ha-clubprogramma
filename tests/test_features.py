@@ -50,6 +50,17 @@ async def test_sensors(
     assert state.state == "2026-11-14T09:45:00+00:00"
     assert state.attributes["kind"] == "match"
     assert state.attributes["activity_id"] == "match-a1"
+    upcoming = state.attributes["upcoming"]
+    assert [(a["activity_id"], a["cancelled"]) for a in upcoming] == [
+        ("match-a1", False),
+        ("train-a1", False),
+        ("train-a2", True),
+        ("match-a2", False),
+    ]
+    assert upcoming[0]["meeting_time"] == "2026-11-14T09:30:00+01:00"
+    assert upcoming[3]["presence"] == "present"
+    assert upcoming[3]["opponent"] == "HC Fictief JO12-1"
+    assert upcoming[3]["role"] == "player"
     state = hass.states.get("sensor.sam_next_duty")
     assert state.state == "2026-11-22T09:00:00+00:00"
     assert state.attributes["title"] == "Bardienst"
@@ -73,7 +84,8 @@ async def test_presence_selects(
     freezer.move_to(NOW)
     await _setup(hass, config_entry)
     state = hass.states.get("select.alex_attendance_next_training")
-    assert state.state == "unknown"
+    assert state.state == "not_given"
+    assert state.attributes["options"] == ["not_given", "present", "absent"]
     assert state.attributes["activity_id"] == "train-a1"
 
     mock_lisa.post(URL_TRAINING_PRESENCE, status=HTTPStatus.OK, text="")
@@ -147,4 +159,4 @@ async def test_presence_refused(
             {"entity_id": "select.alex_attendance_next_training", "option": "present"},
             blocking=True,
         )
-    assert hass.states.get("select.alex_attendance_next_training").state == "unknown"
+    assert hass.states.get("select.alex_attendance_next_training").state == "not_given"
