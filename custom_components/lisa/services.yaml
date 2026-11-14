@@ -1,0 +1,21 @@
+set_presence:
+  fields:
+    device_id:
+      required: true
+      selector:
+        device:
+          integration: lisa
+    activity_id:
+      required: true
+      example: "0f9d1c7e-…"
+      selector:
+        text:
+    status:
+      required: true
+      selector:
+        select:
+          options:
+            - present
+            - absent
+            - unknown
+          translation_key: presence

@@ -1,0 +1,14 @@
+{
+ "clubs": [
+  {
+   "club": {
+    "id": "club-1",
+    "name": "HC Voorbeeld",
+    "short_name": "HCV",
+    "city": "voorbeeldstad",
+    "federation_code": "HV00AA1",
+    "has_branded_app": true
+   }
+  }
+ ]
+}

@@ -1,0 +1,76 @@
+blueprint:
+  name: LISA – reminder before the meet time
+  description: >-
+    Reminds you a set time before a family member's team meets for the next match (the member's
+    *Meet time* sensor, as the team set it in LISA), with the venue and address. Add travel time to
+    the lead time: the meet time is when you need to be there.
+  domain: automation
+  source_url: https://github.com/sebegerritsen/ha-lisa/blob/main/blueprints/automation/lisa/meeting_time_reminder.yaml
+  input:
+    meet_time_entity:
+      name: Meet time sensor
+      selector:
+        entity:
+          filter:
+            - integration: lisa
+              domain: sensor
+              device_class: timestamp
+    notify_device:
+      name: Phone
+      selector:
+        device:
+          filter:
+            - integration: mobile_app
+    lead_time:
+      name: How long before the meet time
+      default: 60
+      selector:
+        number:
+          min: 0
+          max: 300
+          step: 5
+          unit_of_measurement: min
+    language:
+      name: Language of the notification
+      default: nl
+      selector:
+        select:
+          options:
+            - label: Nederlands
+              value: nl
+            - label: English
+              value: en
+
+mode: single
+
+trigger_variables:
+  meet_entity: !input meet_time_entity
+  lead: !input lead_time
+
+triggers:
+  - trigger: template
+    value_template: >-
+      {% set meet = as_datetime(states(meet_entity)) %}
+      {{ meet is not none
+         and now() >= meet - timedelta(minutes=lead | int)
+         and now() < meet }}
+
+variables:
+  lang: !input language
+
+actions:
+  - variables:
+      a: "{{ states[meet_entity].attributes }}"
+      meet_at: "{{ as_local(as_datetime(states(meet_entity))).strftime('%H:%M') }}"
+      kickoff_at: "{{ as_local(as_datetime(a.start)).strftime('%H:%M') if a.start else '?' }}"
+      member: >-
+        {{ device_attr(device_id(meet_entity), 'name_by_user') or device_attr(device_id(meet_entity), 'name') }}
+  - device_id: !input notify_device
+    domain: mobile_app
+    type: notify
+    title: >-
+      {{ member }}: {{ 'verzamelen' if lang == 'nl' else 'meet at' }} {{ meet_at }}
+    message: >-
+      {{ a.title }} · {{ 'aanvang' if lang == 'nl' else 'kick-off' }} {{ kickoff_at }}
+      {%- if a.location %} · {{ a.location }}{% endif %}
+      {%- if a.address %} ({{ a.address }}){% endif %}

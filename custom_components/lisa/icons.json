@@ -1,0 +1,85 @@
+{
+  "entity": {
+    "calendar": {
+      "activities": {
+        "default": "mdi:calendar-account"
+      },
+      "agenda": {
+        "default": "mdi:calendar-star"
+      }
+    },
+    "event": {
+      "activity_update": {
+        "default": "mdi:bell-ring",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "cancelled": "mdi:cancel",
+              "reinstated": "mdi:check-circle",
+              "rescheduled": "mdi:calendar-clock",
+              "meeting_time_changed": "mdi:clock-edit-outline"
+            }
+          }
+        }
+      }
+    },
+    "sensor": {
+      "next_training": {
+        "default": "mdi:whistle"
+      },
+      "next_match": {
+        "default": "mdi:hockey-sticks"
+      },
+      "meeting_time": {
+        "default": "mdi:account-group"
+      },
+      "presence_todo": {
+        "default": "mdi:account-question"
+      },
+      "next_activity": {
+        "default": "mdi:calendar-arrow-right"
+      },
+      "next_duty": {
+        "default": "mdi:clipboard-check-outline"
+      },
+      "next_umpiring": {
+        "default": "mdi:whistle-outline"
+      }
+    },
+    "select": {
+      "next_training_presence": {
+        "default": "mdi:account-question",
+        "state": {
+          "present": "mdi:account-check",
+          "absent": "mdi:account-cancel"
+        }
+      },
+      "next_match_presence": {
+        "default": "mdi:account-question",
+        "state": {
+          "present": "mdi:account-check",
+          "absent": "mdi:account-cancel"
+        }
+      }
+    },
+    "binary_sensor": {
+      "training_today": {
+        "default": "mdi:calendar-blank",
+        "state": {
+          "on": "mdi:whistle"
+        }
+      },
+      "match_today": {
+        "default": "mdi:calendar-blank",
+        "state": {
+          "on": "mdi:hockey-sticks"
+        }
+      }
+    }
+  },
+  "services": {
+    "set_presence": {
+      "service": "mdi:account-check"
+    }
+  }
+}

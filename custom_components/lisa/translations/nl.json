@@ -1,0 +1,811 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Je club in LISA",
+        "description": "Log in zoals in de LISA-app van je club. Ouders zien ook de activiteiten van hun kinderen.",
+        "data": {
+          "sport": "Sport",
+          "query": "Clubnaam of plaats"
+        },
+        "data_description": {
+          "query": "Bijvoorbeeld een deel van de clubnaam, of de plaats."
+        }
+      },
+      "club": {
+        "title": "Kies de club",
+        "data": {
+          "club_id": "Club"
+        }
+      },
+      "login": {
+        "title": "Inloggen bij LISA",
+        "description": "Het lidnummer en wachtwoord van de LISA-app van {club}.",
+        "data": {
+          "login_type": "Inloggen met",
+          "number": "Lidnummer",
+          "password": "Wachtwoord"
+        },
+        "data_description": {
+          "number": "Je lidnummer bij de club, of je bondsnummer (KNHB/KNLTB).",
+          "password": "Het wachtwoord van de LISA-clubapp."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Opnieuw inloggen bij LISA",
+        "description": "LISA accepteert het wachtwoord van lid {number} niet meer.",
+        "data": {
+          "password": "Wachtwoord"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Kon LISA niet bereiken. Probeer het later opnieuw.",
+      "invalid_auth": "LISA accepteert dit lidnummer en wachtwoord niet.",
+      "no_clubs_found": "Geen club gevonden. Probeer een korter deel van de naam, of de plaats."
+    },
+    "abort": {
+      "already_configured": "Deze LISA-login is al ingesteld.",
+      "reauth_successful": "Opnieuw ingelogd.",
+      "wrong_account": "Dat is een ander lid dan eerst."
+    }
+  },
+  "selector": {
+    "sport": {
+      "options": {
+        "hockey": "Hockey",
+        "tennis": "Tennis (KNLTB)"
+      }
+    },
+    "login_type": {
+      "options": {
+        "club": "Lidnummer van de club",
+        "federation": "Bondsnummer (KNHB/KNLTB)"
+      }
+    },
+    "presence": {
+      "options": {
+        "unknown": "Niet doorgegeven",
+        "present": "Aanwezig",
+        "absent": "Afwezig"
+      }
+    }
+  },
+  "entity": {
+    "calendar": {
+      "activities": {
+        "name": "Activiteiten"
+      },
+      "agenda": {
+        "name": "Clubagenda"
+      }
+    },
+    "event": {
+      "activity_update": {
+        "name": "Wijziging activiteit",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "cancelled": "Afgelast",
+              "reinstated": "Gaat toch door",
+              "rescheduled": "Verplaatst",
+              "meeting_time_changed": "Verzameltijd gewijzigd"
+            }
+          },
+          "member": {
+            "name": "Lid"
+          },
+          "kind": {
+            "name": "Soort",
+            "state": {
+              "training": "Training",
+              "match": "Wedstrijd",
+              "agenda": "Agenda",
+              "duty": "Taak",
+              "referee": "Fluiten",
+              "booking": "Reservering",
+              "team_event": "Teamactiviteit"
+            }
+          },
+          "title": {
+            "name": "Titel"
+          },
+          "team": {
+            "name": "Team"
+          },
+          "start": {
+            "name": "Begin"
+          },
+          "previous_start": {
+            "name": "Vorig begin"
+          },
+          "meeting_time": {
+            "name": "Verzameltijd"
+          },
+          "previous_meeting_time": {
+            "name": "Vorige verzameltijd"
+          },
+          "location": {
+            "name": "Locatie"
+          },
+          "pitch": {
+            "name": "Veld"
+          }
+        }
+      }
+    },
+    "sensor": {
+      "next_training": {
+        "name": "Volgende training",
+        "state_attributes": {
+          "activity_id": {
+            "name": "Activiteit-ID"
+          },
+          "kind": {
+            "name": "Soort",
+            "state": {
+              "training": "Training",
+              "match": "Wedstrijd",
+              "agenda": "Agenda",
+              "duty": "Taak",
+              "referee": "Fluiten",
+              "booking": "Reservering",
+              "team_event": "Teamactiviteit"
+            }
+          },
+          "title": {
+            "name": "Titel"
+          },
+          "team": {
+            "name": "Team"
+          },
+          "start": {
+            "name": "Begin"
+          },
+          "end": {
+            "name": "Einde"
+          },
+          "location": {
+            "name": "Locatie"
+          },
+          "address": {
+            "name": "Adres"
+          },
+          "pitch": {
+            "name": "Veld"
+          },
+          "presence": {
+            "name": "Jouw aanwezigheid",
+            "state": {
+              "unknown": "Niet doorgegeven",
+              "present": "Aanwezig",
+              "absent": "Afwezig"
+            }
+          },
+          "can_change_presence": {
+            "name": "Aanwezigheid door te geven"
+          },
+          "present": {
+            "name": "Aanwezig"
+          },
+          "absent": {
+            "name": "Afwezig"
+          },
+          "unknown": {
+            "name": "Geen reactie"
+          },
+          "role": {
+            "name": "Rol",
+            "state": {
+              "player": "Speler",
+              "staff": "Staf"
+            }
+          },
+          "staff_roles": {
+            "name": "Stafrollen"
+          },
+          "trainers": {
+            "name": "Trainers"
+          }
+        }
+      },
+      "next_match": {
+        "name": "Volgende wedstrijd",
+        "state_attributes": {
+          "activity_id": {
+            "name": "Activiteit-ID"
+          },
+          "kind": {
+            "name": "Soort",
+            "state": {
+              "training": "Training",
+              "match": "Wedstrijd",
+              "agenda": "Agenda",
+              "duty": "Taak",
+              "referee": "Fluiten",
+              "booking": "Reservering",
+              "team_event": "Teamactiviteit"
+            }
+          },
+          "title": {
+            "name": "Titel"
+          },
+          "team": {
+            "name": "Team"
+          },
+          "start": {
+            "name": "Begin"
+          },
+          "end": {
+            "name": "Einde"
+          },
+          "location": {
+            "name": "Locatie"
+          },
+          "address": {
+            "name": "Adres"
+          },
+          "pitch": {
+            "name": "Veld"
+          },
+          "presence": {
+            "name": "Jouw aanwezigheid",
+            "state": {
+              "unknown": "Niet doorgegeven",
+              "present": "Aanwezig",
+              "absent": "Afwezig"
+            }
+          },
+          "can_change_presence": {
+            "name": "Aanwezigheid door te geven"
+          },
+          "present": {
+            "name": "Aanwezig"
+          },
+          "absent": {
+            "name": "Afwezig"
+          },
+          "unknown": {
+            "name": "Geen reactie"
+          },
+          "role": {
+            "name": "Rol",
+            "state": {
+              "player": "Speler",
+              "staff": "Staf"
+            }
+          },
+          "staff_roles": {
+            "name": "Stafrollen"
+          },
+          "meeting_time": {
+            "name": "Verzameltijd"
+          },
+          "home_team": {
+            "name": "Thuisteam"
+          },
+          "away_team": {
+            "name": "Uitteam"
+          },
+          "opponent": {
+            "name": "Tegenstander"
+          },
+          "home_away": {
+            "name": "Thuis of uit",
+            "state": {
+              "home": "Thuis",
+              "away": "Uit"
+            }
+          },
+          "alternate_kit": {
+            "name": "Uittenue"
+          },
+          "tasks": {
+            "name": "Taken"
+          },
+          "umpires": {
+            "name": "Scheidsrechters"
+          },
+          "status": {
+            "name": "Status"
+          }
+        }
+      },
+      "meeting_time": {
+        "name": "Verzameltijd",
+        "state_attributes": {
+          "activity_id": {
+            "name": "Activiteit-ID"
+          },
+          "kind": {
+            "name": "Soort",
+            "state": {
+              "training": "Training",
+              "match": "Wedstrijd",
+              "agenda": "Agenda",
+              "duty": "Taak",
+              "referee": "Fluiten",
+              "booking": "Reservering",
+              "team_event": "Teamactiviteit"
+            }
+          },
+          "title": {
+            "name": "Titel"
+          },
+          "team": {
+            "name": "Team"
+          },
+          "start": {
+            "name": "Begin"
+          },
+          "end": {
+            "name": "Einde"
+          },
+          "location": {
+            "name": "Locatie"
+          },
+          "address": {
+            "name": "Adres"
+          },
+          "pitch": {
+            "name": "Veld"
+          },
+          "presence": {
+            "name": "Jouw aanwezigheid",
+            "state": {
+              "unknown": "Niet doorgegeven",
+              "present": "Aanwezig",
+              "absent": "Afwezig"
+            }
+          },
+          "can_change_presence": {
+            "name": "Aanwezigheid door te geven"
+          },
+          "present": {
+            "name": "Aanwezig"
+          },
+          "absent": {
+            "name": "Afwezig"
+          },
+          "unknown": {
+            "name": "Geen reactie"
+          },
+          "role": {
+            "name": "Rol",
+            "state": {
+              "player": "Speler",
+              "staff": "Staf"
+            }
+          },
+          "staff_roles": {
+            "name": "Stafrollen"
+          },
+          "meeting_time": {
+            "name": "Verzameltijd"
+          },
+          "home_team": {
+            "name": "Thuisteam"
+          },
+          "away_team": {
+            "name": "Uitteam"
+          },
+          "opponent": {
+            "name": "Tegenstander"
+          },
+          "home_away": {
+            "name": "Thuis of uit",
+            "state": {
+              "home": "Thuis",
+              "away": "Uit"
+            }
+          },
+          "alternate_kit": {
+            "name": "Uittenue"
+          },
+          "tasks": {
+            "name": "Taken"
+          },
+          "umpires": {
+            "name": "Scheidsrechters"
+          },
+          "status": {
+            "name": "Status"
+          }
+        }
+      },
+      "presence_todo": {
+        "name": "Aanwezigheid door te geven",
+        "unit_of_measurement": "activiteiten",
+        "state_attributes": {
+          "activities": {
+            "name": "Activiteiten"
+          }
+        }
+      },
+      "next_activity": {
+        "name": "Volgende activiteit",
+        "state_attributes": {
+          "activity_id": {
+            "name": "Activiteit-ID"
+          },
+          "kind": {
+            "name": "Soort",
+            "state": {
+              "training": "Training",
+              "match": "Wedstrijd",
+              "agenda": "Agenda",
+              "duty": "Taak",
+              "referee": "Fluiten",
+              "booking": "Reservering",
+              "team_event": "Teamactiviteit"
+            }
+          },
+          "title": {
+            "name": "Titel"
+          },
+          "team": {
+            "name": "Team"
+          },
+          "start": {
+            "name": "Begin"
+          },
+          "end": {
+            "name": "Einde"
+          },
+          "location": {
+            "name": "Locatie"
+          },
+          "address": {
+            "name": "Adres"
+          },
+          "pitch": {
+            "name": "Veld"
+          },
+          "presence": {
+            "name": "Jouw aanwezigheid",
+            "state": {
+              "unknown": "Niet doorgegeven",
+              "present": "Aanwezig",
+              "absent": "Afwezig"
+            }
+          },
+          "can_change_presence": {
+            "name": "Aanwezigheid door te geven"
+          },
+          "present": {
+            "name": "Aanwezig"
+          },
+          "absent": {
+            "name": "Afwezig"
+          },
+          "unknown": {
+            "name": "Geen reactie"
+          },
+          "role": {
+            "name": "Rol",
+            "state": {
+              "player": "Speler",
+              "staff": "Staf"
+            }
+          },
+          "staff_roles": {
+            "name": "Stafrollen"
+          },
+          "meeting_time": {
+            "name": "Verzameltijd"
+          },
+          "home_team": {
+            "name": "Thuisteam"
+          },
+          "away_team": {
+            "name": "Uitteam"
+          },
+          "opponent": {
+            "name": "Tegenstander"
+          },
+          "home_away": {
+            "name": "Thuis of uit",
+            "state": {
+              "home": "Thuis",
+              "away": "Uit"
+            }
+          },
+          "alternate_kit": {
+            "name": "Uittenue"
+          },
+          "tasks": {
+            "name": "Taken"
+          },
+          "umpires": {
+            "name": "Scheidsrechters"
+          },
+          "status": {
+            "name": "Status"
+          },
+          "trainers": {
+            "name": "Trainers"
+          }
+        }
+      },
+      "next_duty": {
+        "name": "Volgende taak",
+        "state_attributes": {
+          "activity_id": {
+            "name": "Activiteit-ID"
+          },
+          "kind": {
+            "name": "Soort",
+            "state": {
+              "training": "Training",
+              "match": "Wedstrijd",
+              "agenda": "Agenda",
+              "duty": "Taak",
+              "referee": "Fluiten",
+              "booking": "Reservering",
+              "team_event": "Teamactiviteit"
+            }
+          },
+          "title": {
+            "name": "Titel"
+          },
+          "team": {
+            "name": "Team"
+          },
+          "start": {
+            "name": "Begin"
+          },
+          "end": {
+            "name": "Einde"
+          },
+          "location": {
+            "name": "Locatie"
+          },
+          "address": {
+            "name": "Adres"
+          },
+          "pitch": {
+            "name": "Veld"
+          },
+          "presence": {
+            "name": "Jouw aanwezigheid",
+            "state": {
+              "unknown": "Niet doorgegeven",
+              "present": "Aanwezig",
+              "absent": "Afwezig"
+            }
+          },
+          "can_change_presence": {
+            "name": "Aanwezigheid door te geven"
+          },
+          "present": {
+            "name": "Aanwezig"
+          },
+          "absent": {
+            "name": "Afwezig"
+          },
+          "unknown": {
+            "name": "Geen reactie"
+          },
+          "role": {
+            "name": "Rol",
+            "state": {
+              "player": "Speler",
+              "staff": "Staf"
+            }
+          },
+          "staff_roles": {
+            "name": "Stafrollen"
+          }
+        }
+      },
+      "next_umpiring": {
+        "name": "Volgende fluitbeurt",
+        "state_attributes": {
+          "activity_id": {
+            "name": "Activiteit-ID"
+          },
+          "kind": {
+            "name": "Soort",
+            "state": {
+              "training": "Training",
+              "match": "Wedstrijd",
+              "agenda": "Agenda",
+              "duty": "Taak",
+              "referee": "Fluiten",
+              "booking": "Reservering",
+              "team_event": "Teamactiviteit"
+            }
+          },
+          "title": {
+            "name": "Titel"
+          },
+          "team": {
+            "name": "Team"
+          },
+          "start": {
+            "name": "Begin"
+          },
+          "end": {
+            "name": "Einde"
+          },
+          "location": {
+            "name": "Locatie"
+          },
+          "address": {
+            "name": "Adres"
+          },
+          "pitch": {
+            "name": "Veld"
+          },
+          "presence": {
+            "name": "Jouw aanwezigheid",
+            "state": {
+              "unknown": "Niet doorgegeven",
+              "present": "Aanwezig",
+              "absent": "Afwezig"
+            }
+          },
+          "can_change_presence": {
+            "name": "Aanwezigheid door te geven"
+          },
+          "present": {
+            "name": "Aanwezig"
+          },
+          "absent": {
+            "name": "Afwezig"
+          },
+          "unknown": {
+            "name": "Geen reactie"
+          },
+          "role": {
+            "name": "Rol",
+            "state": {
+              "player": "Speler",
+              "staff": "Staf"
+            }
+          },
+          "staff_roles": {
+            "name": "Stafrollen"
+          }
+        }
+      }
+    },
+    "select": {
+      "next_training_presence": {
+        "name": "Aanwezigheid volgende training",
+        "state": {
+          "unknown": "Niet doorgegeven",
+          "present": "Aanwezig",
+          "absent": "Afwezig"
+        },
+        "state_attributes": {
+          "activity_id": {
+            "name": "Activiteit-ID"
+          },
+          "title": {
+            "name": "Titel"
+          },
+          "start": {
+            "name": "Begin"
+          },
+          "present": {
+            "name": "Aanwezig"
+          },
+          "absent": {
+            "name": "Afwezig"
+          },
+          "unknown": {
+            "name": "Geen reactie"
+          }
+        }
+      },
+      "next_match_presence": {
+        "name": "Aanwezigheid volgende wedstrijd",
+        "state": {
+          "unknown": "Niet doorgegeven",
+          "present": "Aanwezig",
+          "absent": "Afwezig"
+        },
+        "state_attributes": {
+          "activity_id": {
+            "name": "Activiteit-ID"
+          },
+          "title": {
+            "name": "Titel"
+          },
+          "start": {
+            "name": "Begin"
+          },
+          "present": {
+            "name": "Aanwezig"
+          },
+          "absent": {
+            "name": "Afwezig"
+          },
+          "unknown": {
+            "name": "Geen reactie"
+          }
+        }
+      }
+    },
+    "binary_sensor": {
+      "training_today": {
+        "name": "Training vandaag",
+        "state_attributes": {
+          "start": {
+            "name": "Begin"
+          },
+          "meeting_time": {
+            "name": "Verzameltijd"
+          },
+          "title": {
+            "name": "Titel"
+          },
+          "location": {
+            "name": "Locatie"
+          }
+        }
+      },
+      "match_today": {
+        "name": "Wedstrijd vandaag",
+        "state_attributes": {
+          "start": {
+            "name": "Begin"
+          },
+          "meeting_time": {
+            "name": "Verzameltijd"
+          },
+          "title": {
+            "name": "Titel"
+          },
+          "location": {
+            "name": "Locatie"
+          }
+        }
+      }
+    }
+  },
+  "services": {
+    "set_presence": {
+      "name": "Aanwezigheid doorgeven",
+      "description": "Geeft in LISA door of een gezinslid naar een training, wedstrijd of teamactiviteit komt. Het team ziet het.",
+      "fields": {
+        "device_id": {
+          "name": "Gezinslid",
+          "description": "Het apparaat van het gezinslid."
+        },
+        "activity_id": {
+          "name": "Activiteit",
+          "description": "Het activity_id uit een van de sensoren van het gezinslid."
+        },
+        "status": {
+          "name": "Aanwezigheid",
+          "description": "Aanwezig, afwezig, of niet doorgegeven."
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "cannot_connect": {
+      "message": "Kon LISA niet bereiken: {error}"
+    },
+    "auth_failed": {
+      "message": "LISA accepteert de login niet meer."
+    },
+    "unexpected_response": {
+      "message": "Onverwacht antwoord van LISA: {error}"
+    },
+    "no_member": {
+      "message": "Geen LISA-gezinslid."
+    },
+    "activity_not_found": {
+      "message": "Die activiteit staat (niet meer) in het programma van dit gezinslid."
+    },
+    "presence_not_allowed": {
+      "message": "Voor deze activiteit kun je geen aanwezigheid doorgeven."
+    },
+    "presence_failed": {
+      "message": "LISA nam de aanwezigheid niet aan: {error}"
+    }
+  }
+}

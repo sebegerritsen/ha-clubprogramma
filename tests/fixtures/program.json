@@ -1,0 +1,483 @@
+{
+ "pinned_items": [],
+ "tiles": [
+  {
+   "type": "match",
+   "match": {
+    "id": "match-a1",
+    "is_home": false,
+    "pool_id": 1,
+    "meeting_time": "2026-11-14T08:30:00Z",
+    "presence": {
+     "status": "unknown",
+     "show_presence_toggle": true,
+     "reactions": {
+      "unknown": 3,
+      "present": 10,
+      "absent": 1
+     }
+    },
+    "location": {
+     "name": "Sportpark MHC Proef",
+     "location_quarters": null,
+     "address": {
+      "street": "Laan",
+      "house_number": "1",
+      "house_number_extension": null,
+      "zip_code": "1234AB",
+      "city": "Ergens",
+      "geo": null
+     }
+    },
+    "pitch": {
+     "name": "Veld 1",
+     "type": null,
+     "number": 1,
+     "quarters": null
+    },
+    "alternate_kit": true,
+    "show_roster": true,
+    "tasks": [],
+    "match_umpires": [],
+    "result": null,
+    "is_member_a_player_in_tile": true,
+    "is_member_a_staff_in_tile": false,
+    "starts_at": "2026-11-14T09:45:00Z",
+    "ends_at": null,
+    "time": "2026-11-14T09:45:00Z",
+    "is_match_time_known": true,
+    "status": "normal",
+    "home_team_name": "MHC Proef JO12-1",
+    "away_team_name": "Voorbeeld JO12-1",
+    "opponent_club_name": "MHC Proef",
+    "opponent_team": "JO12-1",
+    "team_name": "Voorbeeld JO12-1",
+    "club_name": "HC Voorbeeld"
+   },
+   "date": "2026-11-14T09:45:00Z",
+   "team_id": "team-1",
+   "club_member_id": "m-alex",
+   "club_member_first_name": "Alex",
+   "club_member_full_name": "Alex Voorbeeld",
+   "relation_type": "family",
+   "club_id": "club-1"
+  },
+  {
+   "type": "match",
+   "match": {
+    "id": "match-s1",
+    "is_home": true,
+    "pool_id": 1,
+    "meeting_time": "2026-11-15T10:30:00Z",
+    "presence": {
+     "status": "present",
+     "show_presence_toggle": true,
+     "reactions": {
+      "unknown": 3,
+      "present": 10,
+      "absent": 1
+     }
+    },
+    "location": {
+     "name": "Sportpark Voorbeeld",
+     "location_quarters": null,
+     "address": {
+      "street": "Laan",
+      "house_number": "1",
+      "house_number_extension": null,
+      "zip_code": "1234AB",
+      "city": "Ergens",
+      "geo": null
+     }
+    },
+    "pitch": {
+     "name": "Veld 1",
+     "type": null,
+     "number": 1,
+     "quarters": null
+    },
+    "alternate_kit": false,
+    "show_roster": true,
+    "tasks": [
+     {
+      "name": "Rijden"
+     }
+    ],
+    "match_umpires": [],
+    "result": null,
+    "is_member_a_player_in_tile": false,
+    "is_member_a_staff_in_tile": true,
+    "starts_at": "2026-11-15T11:00:00Z",
+    "ends_at": null,
+    "time": "2026-11-15T11:00:00Z",
+    "is_match_time_known": true,
+    "status": "normal",
+    "home_team_name": "Voorbeeld MO10-2",
+    "away_team_name": "HC Fictief MO10-2",
+    "opponent_club_name": "HC Fictief",
+    "opponent_team": "MO10-2",
+    "team_name": "Voorbeeld MO10-2",
+    "club_name": "HC Voorbeeld"
+   },
+   "date": "2026-11-15T11:00:00Z",
+   "team_id": "team-1",
+   "club_member_id": "m-sam",
+   "club_member_first_name": "Sam",
+   "club_member_full_name": "Sam Voorbeeld",
+   "relation_type": "family",
+   "club_id": "club-1"
+  },
+  {
+   "type": "agenda",
+   "agenda": {
+    "id": "agenda-1",
+    "title": "Clubdag",
+    "club_name": "HC Voorbeeld",
+    "location": "Sportpark Voorbeeld",
+    "sub_location": null,
+    "starts_at": "2026-11-15T13:00:00Z",
+    "ends_at": "2026-11-15T16:00:00Z"
+   },
+   "date": "2026-11-15T13:00:00Z",
+   "team_id": null,
+   "club_member_id": "m-parent",
+   "club_member_first_name": "Robin",
+   "club_member_full_name": "Robin Voorbeeld",
+   "relation_type": "none",
+   "club_id": "club-1"
+  },
+  {
+   "type": "training",
+   "training": {
+    "id": "train-a1",
+    "training_id": "train-a1-t",
+    "team_name": "Voorbeeld JO12-1",
+    "team_abbreviation": "JO12-1",
+    "pitch": {
+     "name": "Veld 3",
+     "type": "Kunstgras",
+     "number": 3,
+     "quarters": null
+    },
+    "location": {
+     "name": "Sportpark Voorbeeld",
+     "location_quarters": null,
+     "address": {
+      "street": "Voorbeeldlaan",
+      "house_number": "1",
+      "house_number_extension": null,
+      "zip_code": "1234AB",
+      "city": "Voorbeeldstad",
+      "geo": null
+     }
+    },
+    "presence": {
+     "status": "unknown",
+     "show_presence_toggle": true,
+     "reactions": {
+      "unknown": 9,
+      "present": 4,
+      "absent": 1
+     }
+    },
+    "club_name": "HC Voorbeeld",
+    "trainers": [
+     {
+      "name": "Trainer Een"
+     }
+    ],
+    "person_staff_roles": [],
+    "is_member_a_player_in_tile": true,
+    "is_member_a_staff_in_tile": false,
+    "cancelled": false,
+    "starts_at": "2026-11-16T15:30:00Z",
+    "ends_at": "2026-11-16T16:30:00Z"
+   },
+   "date": "2026-11-16T15:30:00Z",
+   "team_id": "team-1",
+   "club_member_id": "m-alex",
+   "club_member_first_name": "Alex",
+   "club_member_full_name": "Alex Voorbeeld",
+   "relation_type": "family",
+   "club_id": "club-1"
+  },
+  {
+   "type": "training",
+   "training": {
+    "id": "train-s1",
+    "training_id": "train-s1-t",
+    "team_name": "Voorbeeld MO10-2",
+    "team_abbreviation": "MO10-2",
+    "pitch": {
+     "name": "Veld 3",
+     "type": "Kunstgras",
+     "number": 3,
+     "quarters": null
+    },
+    "location": {
+     "name": "Sportpark Voorbeeld",
+     "location_quarters": null,
+     "address": {
+      "street": "Voorbeeldlaan",
+      "house_number": "1",
+      "house_number_extension": null,
+      "zip_code": "1234AB",
+      "city": "Voorbeeldstad",
+      "geo": null
+     }
+    },
+    "presence": {
+     "status": "present",
+     "show_presence_toggle": true,
+     "reactions": {
+      "unknown": 9,
+      "present": 4,
+      "absent": 1
+     }
+    },
+    "club_name": "HC Voorbeeld",
+    "trainers": [
+     {
+      "name": "Trainer Een"
+     }
+    ],
+    "person_staff_roles": [
+     {
+      "id": "r1",
+      "role_name": "Manager"
+     }
+    ],
+    "is_member_a_player_in_tile": false,
+    "is_member_a_staff_in_tile": true,
+    "cancelled": false,
+    "starts_at": "2026-11-17T16:00:00Z",
+    "ends_at": "2026-11-17T17:00:00Z"
+   },
+   "date": "2026-11-17T16:00:00Z",
+   "team_id": "team-1",
+   "club_member_id": "m-sam",
+   "club_member_first_name": "Sam",
+   "club_member_full_name": "Sam Voorbeeld",
+   "relation_type": "family",
+   "club_id": "club-1"
+  },
+  {
+   "type": "training",
+   "training": {
+    "id": "train-a2",
+    "training_id": "train-a2-t",
+    "team_name": "Voorbeeld JO12-1",
+    "team_abbreviation": "JO12-1",
+    "pitch": {
+     "name": "Veld 3",
+     "type": "Kunstgras",
+     "number": 3,
+     "quarters": null
+    },
+    "location": {
+     "name": "Sportpark Voorbeeld",
+     "location_quarters": null,
+     "address": {
+      "street": "Voorbeeldlaan",
+      "house_number": "1",
+      "house_number_extension": null,
+      "zip_code": "1234AB",
+      "city": "Voorbeeldstad",
+      "geo": null
+     }
+    },
+    "presence": {
+     "status": "unknown",
+     "show_presence_toggle": true,
+     "reactions": {
+      "unknown": 9,
+      "present": 4,
+      "absent": 1
+     }
+    },
+    "club_name": "HC Voorbeeld",
+    "trainers": [
+     {
+      "name": "Trainer Een"
+     }
+    ],
+    "person_staff_roles": [],
+    "is_member_a_player_in_tile": true,
+    "is_member_a_staff_in_tile": false,
+    "cancelled": true,
+    "starts_at": "2026-11-18T15:30:00Z",
+    "ends_at": "2026-11-18T16:30:00Z"
+   },
+   "date": "2026-11-18T15:30:00Z",
+   "team_id": "team-1",
+   "club_member_id": "m-alex",
+   "club_member_first_name": "Alex",
+   "club_member_full_name": "Alex Voorbeeld",
+   "relation_type": "family",
+   "club_id": "club-1"
+  },
+  {
+   "type": "match",
+   "match": {
+    "id": "match-a2",
+    "is_home": true,
+    "pool_id": 1,
+    "meeting_time": "2026-11-21T09:30:00Z",
+    "presence": {
+     "status": "present",
+     "show_presence_toggle": true,
+     "reactions": {
+      "unknown": 3,
+      "present": 10,
+      "absent": 1
+     }
+    },
+    "location": {
+     "name": "Sportpark Voorbeeld",
+     "location_quarters": null,
+     "address": {
+      "street": "Laan",
+      "house_number": "1",
+      "house_number_extension": null,
+      "zip_code": "1234AB",
+      "city": "Ergens",
+      "geo": null
+     }
+    },
+    "pitch": {
+     "name": "Veld 1",
+     "type": null,
+     "number": 1,
+     "quarters": null
+    },
+    "alternate_kit": false,
+    "show_roster": true,
+    "tasks": [],
+    "match_umpires": [],
+    "result": null,
+    "is_member_a_player_in_tile": true,
+    "is_member_a_staff_in_tile": false,
+    "starts_at": "2026-11-21T10:00:00Z",
+    "ends_at": null,
+    "time": "2026-11-21T10:00:00Z",
+    "is_match_time_known": true,
+    "status": "normal",
+    "home_team_name": "Voorbeeld JO12-1",
+    "away_team_name": "HC Fictief JO12-1",
+    "opponent_club_name": "HC Fictief",
+    "opponent_team": "JO12-1",
+    "team_name": "Voorbeeld JO12-1",
+    "club_name": "HC Voorbeeld"
+   },
+   "date": "2026-11-21T10:00:00Z",
+   "team_id": "team-1",
+   "club_member_id": "m-alex",
+   "club_member_first_name": "Alex",
+   "club_member_full_name": "Alex Voorbeeld",
+   "relation_type": "family",
+   "club_id": "club-1"
+  },
+  {
+   "type": "duty",
+   "duty": {
+    "id": "duty-s1",
+    "title": "Bardienst",
+    "starts_at": "2026-11-22T09:00:00Z",
+    "ends_at": "2026-11-22T12:00:00Z",
+    "location": {
+     "name": "Clubhuis"
+    }
+   },
+   "date": "2026-11-22T09:00:00Z",
+   "team_id": "team-1",
+   "club_member_id": "m-sam",
+   "club_member_first_name": "Sam",
+   "club_member_full_name": "Sam Voorbeeld",
+   "relation_type": "family",
+   "club_id": "club-1"
+  },
+  {
+   "type": "training",
+   "training": {
+    "id": "train-a3",
+    "training_id": "train-a3-t",
+    "team_name": "Voorbeeld JO12-1",
+    "team_abbreviation": "JO12-1",
+    "pitch": {
+     "name": "Veld 3",
+     "type": "Kunstgras",
+     "number": 3,
+     "quarters": null
+    },
+    "location": {
+     "name": "Sportpark Voorbeeld",
+     "location_quarters": null,
+     "address": {
+      "street": "Voorbeeldlaan",
+      "house_number": "1",
+      "house_number_extension": null,
+      "zip_code": "1234AB",
+      "city": "Voorbeeldstad",
+      "geo": null
+     }
+    },
+    "presence": {
+     "status": "unknown",
+     "show_presence_toggle": true,
+     "reactions": {
+      "unknown": 9,
+      "present": 4,
+      "absent": 1
+     }
+    },
+    "club_name": "HC Voorbeeld",
+    "trainers": [
+     {
+      "name": "Trainer Een"
+     }
+    ],
+    "person_staff_roles": [],
+    "is_member_a_player_in_tile": true,
+    "is_member_a_staff_in_tile": false,
+    "cancelled": false,
+    "starts_at": "2026-11-30T15:30:00Z",
+    "ends_at": "2026-11-30T16:30:00Z"
+   },
+   "date": "2026-11-30T15:30:00Z",
+   "team_id": "team-1",
+   "club_member_id": "m-alex",
+   "club_member_first_name": "Alex",
+   "club_member_full_name": "Alex Voorbeeld",
+   "relation_type": "family",
+   "club_id": "club-1"
+  },
+  {
+   "type": "teamEvent",
+   "teamEvent": {
+    "id": "date-1",
+    "team_event_id": "tev-1",
+    "title": "Teamuitje",
+    "starts_at": "2026-12-05T13:00:00Z",
+    "ends_at": "2026-12-05T17:00:00Z",
+    "presence": {
+     "status": "unknown",
+     "show_presence_toggle": true,
+     "reactions": {
+      "unknown": 8,
+      "present": 2,
+      "absent": 0
+     }
+    }
+   },
+   "date": "2026-12-05T13:00:00Z",
+   "team_id": "team-1",
+   "club_member_id": "m-alex",
+   "club_member_first_name": "Alex",
+   "club_member_full_name": "Alex Voorbeeld",
+   "relation_type": "family",
+   "club_id": "club-1"
+  }
+ ],
+ "page_end_date": "2026-11-30T15:30:00Z",
+ "timeline_end_date": "2027-06-30T00:00:00Z"
+}

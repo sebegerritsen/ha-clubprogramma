@@ -1,0 +1,102 @@
+blueprint:
+  name: LISA – give attendance from a notification
+  description: >-
+    Every day at a set time, asks for each of a family member's coming activities that has no
+    answer yet (the member's *Attendance to give* sensor), with the buttons Present and Absent.
+    Tapping one tells LISA; the team sees it.
+  domain: automation
+  source_url: https://github.com/sebegerritsen/ha-lisa/blob/main/blueprints/automation/lisa/presence_buttons.yaml
+  input:
+    member_device:
+      name: Family member
+      description: The family member's device of the LISA integration.
+      selector:
+        device:
+          filter:
+            - integration: lisa
+    notify_device:
+      name: Phone
+      selector:
+        device:
+          filter:
+            - integration: mobile_app
+    time:
+      name: Time to ask
+      default: "18:00:00"
+      selector:
+        time: {}
+    language:
+      name: Language of the notification
+      default: nl
+      selector:
+        select:
+          options:
+            - label: Nederlands
+              value: nl
+            - label: English
+              value: en
+
+mode: queued
+max: 20
+
+triggers:
+  - trigger: time
+    at: !input time
+    id: ask
+  - trigger: event
+    event_type: mobile_app_notification_action
+    id: answer
+
+variables:
+  member: !input member_device
+  lang: !input language
+  member_name: "{{ device_attr(member, 'name_by_user') or device_attr(member, 'name') }}"
+  todo_entity: >-
+    {% set ns = namespace(found='') %}
+    {% for e in device_entities(member) %}
+      {% if e.startswith('sensor.') and state_attr(e, 'activities') is not none %}{% set ns.found = e %}{% endif %}
+    {% endfor %}
+    {{ ns.found }}
+  days: >-
+    {{ ['ma', 'di', 'wo', 'do', 'vr', 'za', 'zo'] if lang == 'nl'
+       else ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
+
+conditions:
+  - condition: template
+    value_template: >-
+      {{ trigger.id == 'ask'
+         or (trigger.event.data.action | default('')).startswith('LISA|' ~ member ~ '|') }}
+
+actions:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: "{{ trigger.id == 'answer' }}"
+        sequence:
+          - variables:
+              parts: "{{ trigger.event.data.action.split('|') }}"
+          - action: lisa.set_presence
+            data:
+              device_id: "{{ member }}"
+              status: "{{ parts[2] }}"
+              activity_id: "{{ parts[3] }}"
+    default:
+      - repeat:
+          for_each: "{{ (state_attr(todo_entity, 'activities') or [])[:5] if todo_entity else [] }}"
+          sequence:
+            - variables:
+                when: >-
+                  {% set d = as_local(as_datetime(repeat.item.start)) %}
+                  {{ days[d.weekday()] ~ ' ' ~ d.strftime('%d-%m %H:%M') }}
+            - device_id: !input notify_device
+              domain: mobile_app
+              type: notify
+              title: "{{ member_name }}: {{ repeat.item.title }}"
+              message: "{{ when }} · {{ 'Kom je?' if lang == 'nl' else 'Are you coming?' }}"
+              data:
+                tag: "lisa-{{ repeat.item.activity_id }}"
+                actions:
+                  - action: "LISA|{{ member }}|present|{{ repeat.item.activity_id }}"
+                    title: "{{ 'Aanwezig' if lang == 'nl' else 'Present' }}"
+                  - action: "LISA|{{ member }}|absent|{{ repeat.item.activity_id }}"
+                    title: "{{ 'Afwezig' if lang == 'nl' else 'Absent' }}"

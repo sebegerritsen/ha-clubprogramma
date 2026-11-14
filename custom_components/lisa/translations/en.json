@@ -1,0 +1,811 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Your club in LISA",
+        "description": "Log in the same way as in your club's LISA app. Parents see their children's activities too.",
+        "data": {
+          "sport": "Sport",
+          "query": "Club name or town"
+        },
+        "data_description": {
+          "query": "For example a part of the club's name, or its town."
+        }
+      },
+      "club": {
+        "title": "Pick the club",
+        "data": {
+          "club_id": "Club"
+        }
+      },
+      "login": {
+        "title": "Log in to LISA",
+        "description": "The member number and password you use in the LISA app of {club}.",
+        "data": {
+          "login_type": "Log in with",
+          "number": "Member number",
+          "password": "Password"
+        },
+        "data_description": {
+          "number": "Your club membership number, or your federation (KNHB/KNLTB) number.",
+          "password": "The password of the LISA club app."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Log in to LISA again",
+        "description": "LISA no longer accepts the password for member {number}.",
+        "data": {
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not reach LISA. Try again later.",
+      "invalid_auth": "LISA did not accept this member number and password.",
+      "no_clubs_found": "No club found. Try a shorter part of the name, or the town."
+    },
+    "abort": {
+      "already_configured": "This LISA login is already set up.",
+      "reauth_successful": "Logged in again.",
+      "wrong_account": "That is a different member than before."
+    }
+  },
+  "selector": {
+    "sport": {
+      "options": {
+        "hockey": "Hockey",
+        "tennis": "Tennis (KNLTB)"
+      }
+    },
+    "login_type": {
+      "options": {
+        "club": "Club membership number",
+        "federation": "Federation number (KNHB/KNLTB)"
+      }
+    },
+    "presence": {
+      "options": {
+        "unknown": "Not given",
+        "present": "Present",
+        "absent": "Absent"
+      }
+    }
+  },
+  "entity": {
+    "calendar": {
+      "activities": {
+        "name": "Activities"
+      },
+      "agenda": {
+        "name": "Club agenda"
+      }
+    },
+    "event": {
+      "activity_update": {
+        "name": "Activity update",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "cancelled": "Cancelled",
+              "reinstated": "Back on",
+              "rescheduled": "Rescheduled",
+              "meeting_time_changed": "Meet time changed"
+            }
+          },
+          "member": {
+            "name": "Member"
+          },
+          "kind": {
+            "name": "Kind",
+            "state": {
+              "training": "Training",
+              "match": "Match",
+              "agenda": "Agenda",
+              "duty": "Duty",
+              "referee": "Umpiring",
+              "booking": "Booking",
+              "team_event": "Team event"
+            }
+          },
+          "title": {
+            "name": "Title"
+          },
+          "team": {
+            "name": "Team"
+          },
+          "start": {
+            "name": "Start"
+          },
+          "previous_start": {
+            "name": "Previous start"
+          },
+          "meeting_time": {
+            "name": "Meet time"
+          },
+          "previous_meeting_time": {
+            "name": "Previous meet time"
+          },
+          "location": {
+            "name": "Location"
+          },
+          "pitch": {
+            "name": "Pitch"
+          }
+        }
+      }
+    },
+    "sensor": {
+      "next_training": {
+        "name": "Next training",
+        "state_attributes": {
+          "activity_id": {
+            "name": "Activity ID"
+          },
+          "kind": {
+            "name": "Kind",
+            "state": {
+              "training": "Training",
+              "match": "Match",
+              "agenda": "Agenda",
+              "duty": "Duty",
+              "referee": "Umpiring",
+              "booking": "Booking",
+              "team_event": "Team event"
+            }
+          },
+          "title": {
+            "name": "Title"
+          },
+          "team": {
+            "name": "Team"
+          },
+          "start": {
+            "name": "Start"
+          },
+          "end": {
+            "name": "End"
+          },
+          "location": {
+            "name": "Location"
+          },
+          "address": {
+            "name": "Address"
+          },
+          "pitch": {
+            "name": "Pitch"
+          },
+          "presence": {
+            "name": "Your attendance",
+            "state": {
+              "unknown": "Not given",
+              "present": "Present",
+              "absent": "Absent"
+            }
+          },
+          "can_change_presence": {
+            "name": "Attendance can be given"
+          },
+          "present": {
+            "name": "Present"
+          },
+          "absent": {
+            "name": "Absent"
+          },
+          "unknown": {
+            "name": "No answer"
+          },
+          "role": {
+            "name": "Role",
+            "state": {
+              "player": "Player",
+              "staff": "Staff"
+            }
+          },
+          "staff_roles": {
+            "name": "Staff roles"
+          },
+          "trainers": {
+            "name": "Trainers"
+          }
+        }
+      },
+      "next_match": {
+        "name": "Next match",
+        "state_attributes": {
+          "activity_id": {
+            "name": "Activity ID"
+          },
+          "kind": {
+            "name": "Kind",
+            "state": {
+              "training": "Training",
+              "match": "Match",
+              "agenda": "Agenda",
+              "duty": "Duty",
+              "referee": "Umpiring",
+              "booking": "Booking",
+              "team_event": "Team event"
+            }
+          },
+          "title": {
+            "name": "Title"
+          },
+          "team": {
+            "name": "Team"
+          },
+          "start": {
+            "name": "Start"
+          },
+          "end": {
+            "name": "End"
+          },
+          "location": {
+            "name": "Location"
+          },
+          "address": {
+            "name": "Address"
+          },
+          "pitch": {
+            "name": "Pitch"
+          },
+          "presence": {
+            "name": "Your attendance",
+            "state": {
+              "unknown": "Not given",
+              "present": "Present",
+              "absent": "Absent"
+            }
+          },
+          "can_change_presence": {
+            "name": "Attendance can be given"
+          },
+          "present": {
+            "name": "Present"
+          },
+          "absent": {
+            "name": "Absent"
+          },
+          "unknown": {
+            "name": "No answer"
+          },
+          "role": {
+            "name": "Role",
+            "state": {
+              "player": "Player",
+              "staff": "Staff"
+            }
+          },
+          "staff_roles": {
+            "name": "Staff roles"
+          },
+          "meeting_time": {
+            "name": "Meet time"
+          },
+          "home_team": {
+            "name": "Home team"
+          },
+          "away_team": {
+            "name": "Away team"
+          },
+          "opponent": {
+            "name": "Opponent"
+          },
+          "home_away": {
+            "name": "Home or away",
+            "state": {
+              "home": "Home",
+              "away": "Away"
+            }
+          },
+          "alternate_kit": {
+            "name": "Alternate kit"
+          },
+          "tasks": {
+            "name": "Tasks"
+          },
+          "umpires": {
+            "name": "Umpires"
+          },
+          "status": {
+            "name": "Status"
+          }
+        }
+      },
+      "meeting_time": {
+        "name": "Meet time",
+        "state_attributes": {
+          "activity_id": {
+            "name": "Activity ID"
+          },
+          "kind": {
+            "name": "Kind",
+            "state": {
+              "training": "Training",
+              "match": "Match",
+              "agenda": "Agenda",
+              "duty": "Duty",
+              "referee": "Umpiring",
+              "booking": "Booking",
+              "team_event": "Team event"
+            }
+          },
+          "title": {
+            "name": "Title"
+          },
+          "team": {
+            "name": "Team"
+          },
+          "start": {
+            "name": "Start"
+          },
+          "end": {
+            "name": "End"
+          },
+          "location": {
+            "name": "Location"
+          },
+          "address": {
+            "name": "Address"
+          },
+          "pitch": {
+            "name": "Pitch"
+          },
+          "presence": {
+            "name": "Your attendance",
+            "state": {
+              "unknown": "Not given",
+              "present": "Present",
+              "absent": "Absent"
+            }
+          },
+          "can_change_presence": {
+            "name": "Attendance can be given"
+          },
+          "present": {
+            "name": "Present"
+          },
+          "absent": {
+            "name": "Absent"
+          },
+          "unknown": {
+            "name": "No answer"
+          },
+          "role": {
+            "name": "Role",
+            "state": {
+              "player": "Player",
+              "staff": "Staff"
+            }
+          },
+          "staff_roles": {
+            "name": "Staff roles"
+          },
+          "meeting_time": {
+            "name": "Meet time"
+          },
+          "home_team": {
+            "name": "Home team"
+          },
+          "away_team": {
+            "name": "Away team"
+          },
+          "opponent": {
+            "name": "Opponent"
+          },
+          "home_away": {
+            "name": "Home or away",
+            "state": {
+              "home": "Home",
+              "away": "Away"
+            }
+          },
+          "alternate_kit": {
+            "name": "Alternate kit"
+          },
+          "tasks": {
+            "name": "Tasks"
+          },
+          "umpires": {
+            "name": "Umpires"
+          },
+          "status": {
+            "name": "Status"
+          }
+        }
+      },
+      "presence_todo": {
+        "name": "Attendance to give",
+        "unit_of_measurement": "activities",
+        "state_attributes": {
+          "activities": {
+            "name": "Activities"
+          }
+        }
+      },
+      "next_activity": {
+        "name": "Next activity",
+        "state_attributes": {
+          "activity_id": {
+            "name": "Activity ID"
+          },
+          "kind": {
+            "name": "Kind",
+            "state": {
+              "training": "Training",
+              "match": "Match",
+              "agenda": "Agenda",
+              "duty": "Duty",
+              "referee": "Umpiring",
+              "booking": "Booking",
+              "team_event": "Team event"
+            }
+          },
+          "title": {
+            "name": "Title"
+          },
+          "team": {
+            "name": "Team"
+          },
+          "start": {
+            "name": "Start"
+          },
+          "end": {
+            "name": "End"
+          },
+          "location": {
+            "name": "Location"
+          },
+          "address": {
+            "name": "Address"
+          },
+          "pitch": {
+            "name": "Pitch"
+          },
+          "presence": {
+            "name": "Your attendance",
+            "state": {
+              "unknown": "Not given",
+              "present": "Present",
+              "absent": "Absent"
+            }
+          },
+          "can_change_presence": {
+            "name": "Attendance can be given"
+          },
+          "present": {
+            "name": "Present"
+          },
+          "absent": {
+            "name": "Absent"
+          },
+          "unknown": {
+            "name": "No answer"
+          },
+          "role": {
+            "name": "Role",
+            "state": {
+              "player": "Player",
+              "staff": "Staff"
+            }
+          },
+          "staff_roles": {
+            "name": "Staff roles"
+          },
+          "meeting_time": {
+            "name": "Meet time"
+          },
+          "home_team": {
+            "name": "Home team"
+          },
+          "away_team": {
+            "name": "Away team"
+          },
+          "opponent": {
+            "name": "Opponent"
+          },
+          "home_away": {
+            "name": "Home or away",
+            "state": {
+              "home": "Home",
+              "away": "Away"
+            }
+          },
+          "alternate_kit": {
+            "name": "Alternate kit"
+          },
+          "tasks": {
+            "name": "Tasks"
+          },
+          "umpires": {
+            "name": "Umpires"
+          },
+          "status": {
+            "name": "Status"
+          },
+          "trainers": {
+            "name": "Trainers"
+          }
+        }
+      },
+      "next_duty": {
+        "name": "Next duty",
+        "state_attributes": {
+          "activity_id": {
+            "name": "Activity ID"
+          },
+          "kind": {
+            "name": "Kind",
+            "state": {
+              "training": "Training",
+              "match": "Match",
+              "agenda": "Agenda",
+              "duty": "Duty",
+              "referee": "Umpiring",
+              "booking": "Booking",
+              "team_event": "Team event"
+            }
+          },
+          "title": {
+            "name": "Title"
+          },
+          "team": {
+            "name": "Team"
+          },
+          "start": {
+            "name": "Start"
+          },
+          "end": {
+            "name": "End"
+          },
+          "location": {
+            "name": "Location"
+          },
+          "address": {
+            "name": "Address"
+          },
+          "pitch": {
+            "name": "Pitch"
+          },
+          "presence": {
+            "name": "Your attendance",
+            "state": {
+              "unknown": "Not given",
+              "present": "Present",
+              "absent": "Absent"
+            }
+          },
+          "can_change_presence": {
+            "name": "Attendance can be given"
+          },
+          "present": {
+            "name": "Present"
+          },
+          "absent": {
+            "name": "Absent"
+          },
+          "unknown": {
+            "name": "No answer"
+          },
+          "role": {
+            "name": "Role",
+            "state": {
+              "player": "Player",
+              "staff": "Staff"
+            }
+          },
+          "staff_roles": {
+            "name": "Staff roles"
+          }
+        }
+      },
+      "next_umpiring": {
+        "name": "Next umpiring",
+        "state_attributes": {
+          "activity_id": {
+            "name": "Activity ID"
+          },
+          "kind": {
+            "name": "Kind",
+            "state": {
+              "training": "Training",
+              "match": "Match",
+              "agenda": "Agenda",
+              "duty": "Duty",
+              "referee": "Umpiring",
+              "booking": "Booking",
+              "team_event": "Team event"
+            }
+          },
+          "title": {
+            "name": "Title"
+          },
+          "team": {
+            "name": "Team"
+          },
+          "start": {
+            "name": "Start"
+          },
+          "end": {
+            "name": "End"
+          },
+          "location": {
+            "name": "Location"
+          },
+          "address": {
+            "name": "Address"
+          },
+          "pitch": {
+            "name": "Pitch"
+          },
+          "presence": {
+            "name": "Your attendance",
+            "state": {
+              "unknown": "Not given",
+              "present": "Present",
+              "absent": "Absent"
+            }
+          },
+          "can_change_presence": {
+            "name": "Attendance can be given"
+          },
+          "present": {
+            "name": "Present"
+          },
+          "absent": {
+            "name": "Absent"
+          },
+          "unknown": {
+            "name": "No answer"
+          },
+          "role": {
+            "name": "Role",
+            "state": {
+              "player": "Player",
+              "staff": "Staff"
+            }
+          },
+          "staff_roles": {
+            "name": "Staff roles"
+          }
+        }
+      }
+    },
+    "select": {
+      "next_training_presence": {
+        "name": "Attendance next training",
+        "state": {
+          "unknown": "Not given",
+          "present": "Present",
+          "absent": "Absent"
+        },
+        "state_attributes": {
+          "activity_id": {
+            "name": "Activity ID"
+          },
+          "title": {
+            "name": "Title"
+          },
+          "start": {
+            "name": "Start"
+          },
+          "present": {
+            "name": "Present"
+          },
+          "absent": {
+            "name": "Absent"
+          },
+          "unknown": {
+            "name": "No answer"
+          }
+        }
+      },
+      "next_match_presence": {
+        "name": "Attendance next match",
+        "state": {
+          "unknown": "Not given",
+          "present": "Present",
+          "absent": "Absent"
+        },
+        "state_attributes": {
+          "activity_id": {
+            "name": "Activity ID"
+          },
+          "title": {
+            "name": "Title"
+          },
+          "start": {
+            "name": "Start"
+          },
+          "present": {
+            "name": "Present"
+          },
+          "absent": {
+            "name": "Absent"
+          },
+          "unknown": {
+            "name": "No answer"
+          }
+        }
+      }
+    },
+    "binary_sensor": {
+      "training_today": {
+        "name": "Training today",
+        "state_attributes": {
+          "start": {
+            "name": "Start"
+          },
+          "meeting_time": {
+            "name": "Meet time"
+          },
+          "title": {
+            "name": "Title"
+          },
+          "location": {
+            "name": "Location"
+          }
+        }
+      },
+      "match_today": {
+        "name": "Match today",
+        "state_attributes": {
+          "start": {
+            "name": "Start"
+          },
+          "meeting_time": {
+            "name": "Meet time"
+          },
+          "title": {
+            "name": "Title"
+          },
+          "location": {
+            "name": "Location"
+          }
+        }
+      }
+    }
+  },
+  "services": {
+    "set_presence": {
+      "name": "Set attendance",
+      "description": "Says in LISA whether a family member comes to a training, match or team event. The team sees it.",
+      "fields": {
+        "device_id": {
+          "name": "Family member",
+          "description": "The family member's device."
+        },
+        "activity_id": {
+          "name": "Activity",
+          "description": "The activity_id from one of the member's sensors."
+        },
+        "status": {
+          "name": "Attendance",
+          "description": "Present, absent, or not given."
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "cannot_connect": {
+      "message": "Could not reach LISA: {error}"
+    },
+    "auth_failed": {
+      "message": "LISA no longer accepts the login."
+    },
+    "unexpected_response": {
+      "message": "Unexpected answer from LISA: {error}"
+    },
+    "no_member": {
+      "message": "Not a LISA family member."
+    },
+    "activity_not_found": {
+      "message": "That activity is not in the member's program (any more)."
+    },
+    "presence_not_allowed": {
+      "message": "Attendance cannot be given for this activity."
+    },
+    "presence_failed": {
+      "message": "LISA did not take the attendance: {error}"
+    }
+  }
+}

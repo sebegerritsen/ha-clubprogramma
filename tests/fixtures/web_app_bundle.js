@@ -1,0 +1,1 @@
+var t4={VITE_API_HOCKEY_URL:"https://api.example.invalid/api/v1/my",VITE_API_TENNIS_URL:"https://api-tennis.example.invalid/api/v1/my",VITE_API_AUTHORIZATION:"Basic dGVzdHVzZXI6dGVzdHBhc3M=",VITE_I18N_LOCALE:"nl"};

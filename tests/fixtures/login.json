@@ -1,0 +1,10 @@
+{
+ "login_status": "success",
+ "token": "token-1",
+ "device_token": null,
+ "has_logged_in_mobile": true,
+ "club_member": {
+  "id": "m-parent",
+  "interanlid": 1
+ }
+}
