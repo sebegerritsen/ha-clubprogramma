@@ -10,7 +10,7 @@ from homeassistant.data_entry_flow import FlowResultType
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 from pytest_homeassistant_custom_component.test_util.aiohttp import AiohttpClientMocker
 
-from custom_components.lisa.const import (
+from custom_components.clubprogramma.const import (
     CONF_CLUB_ID,
     CONF_LOGIN_TYPE,
     CONF_MEMBER_ID,

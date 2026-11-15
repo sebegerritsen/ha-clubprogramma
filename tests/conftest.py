@@ -10,7 +10,7 @@ import pytest
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 from pytest_homeassistant_custom_component.test_util.aiohttp import AiohttpClientMocker
 
-from custom_components.lisa.const import (
+from custom_components.clubprogramma.const import (
     CONF_API_URL,
     CONF_BASIC,
     CONF_CLUB_ID,

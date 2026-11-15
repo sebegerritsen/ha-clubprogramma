@@ -1,11 +1,12 @@
-# LISA for Home Assistant
+# Clubprogramma for Home Assistant
 
 A [Home Assistant](https://www.home-assistant.io/) integration, installable through [HACS](https://hacs.xyz/),
-for **LISA**, the club software most Dutch hockey clubs (and KNLTB tennis clubs) use. Log in with the
+for clubs that use **LISA**, the club software most Dutch hockey clubs (and KNLTB tennis clubs) use. Log in with the
 member number and password of your club's LISA app, and get your own and your family's trainings, matches,
 team events and attendance in Home Assistant.
 
-> **Status: early development (0.1.0).** Not affiliated with or endorsed by LISA.
+> **Status: early development (0.1.0).** This project is **not affiliated with or endorsed by LISA**
+> (LISA Ledeninformatiesystemen B.V.); LISA is named only as the software it connects to.
 
 ## What it does
 
@@ -30,7 +31,7 @@ And for the login itself:
 | **Club agenda** (calendar) | the club's agenda |
 | **Activity update** (event) | fires when an activity is *cancelled*, *back on*, *rescheduled*, or gets a *new meet time*, with who and what |
 
-The action **`lisa.set_presence`** (device, `activity_id`, `present`/`absent`/`unknown`) gives attendance
+The action **`clubprogramma.set_presence`** (device, `activity_id`, `present`/`absent`/`unknown`) gives attendance
 for any training, match or team event, for example from a notification button.
 
 Changes are remembered across restarts, so what changed while Home Assistant was off is still reported.
@@ -42,9 +43,9 @@ Ready-made automations that send a notification to your phone (Home Assistant ap
 
 | Blueprint | What it does | |
 |---|---|---|
-| Notify on activity changes | cancelled, back on, rescheduled, new meet time | [![Import blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fsebegerritsen%2Fha-lisa%2Fblob%2Fmain%2Fblueprints%2Fautomation%2Flisa%2Factivity_update_notify.yaml) |
-| Give attendance from a notification | daily at a set time, one notification per activity without an answer, with **Present** / **Absent** buttons that tell LISA | [![Import blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fsebegerritsen%2Fha-lisa%2Fblob%2Fmain%2Fblueprints%2Fautomation%2Flisa%2Fpresence_buttons.yaml) |
-| Reminder before the meet time | a set time before the team meets for the next match, with venue and address | [![Import blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fsebegerritsen%2Fha-lisa%2Fblob%2Fmain%2Fblueprints%2Fautomation%2Flisa%2Fmeeting_time_reminder.yaml) |
+| Notify on activity changes | cancelled, back on, rescheduled, new meet time | [![Import blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fsebegerritsen%2Fha-clubprogramma%2Fblob%2Fmain%2Fblueprints%2Fautomation%2Flisa%2Factivity_update_notify.yaml) |
+| Give attendance from a notification | daily at a set time, one notification per activity without an answer, with **Present** / **Absent** buttons that tell LISA | [![Import blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fsebegerritsen%2Fha-clubprogramma%2Fblob%2Fmain%2Fblueprints%2Fautomation%2Flisa%2Fpresence_buttons.yaml) |
+| Reminder before the meet time | a set time before the team meets for the next match, with venue and address | [![Import blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fsebegerritsen%2Fha-clubprogramma%2Fblob%2Fmain%2Fblueprints%2Fautomation%2Flisa%2Fmeeting_time_reminder.yaml) |
 
 ## How it connects
 
@@ -61,11 +62,11 @@ It polls every 15 minutes.
 Requires Home Assistant 2025.12 or newer.
 
 **HACS** (since Home Assistant 2026.11 part of the built-in *Marketplace*): add
-`https://github.com/sebegerritsen/ha-lisa` as a custom repository of type *Integration*, install **LISA**
-and restart Home Assistant. **Manually:** copy `custom_components/lisa` into your `custom_components`
+`https://github.com/sebegerritsen/ha-clubprogramma` as a custom repository of type *Integration*, install **Clubprogramma**
+and restart Home Assistant. **Manually:** copy `custom_components/clubprogramma` into your `custom_components`
 folder and restart.
 
-Then *Settings → Devices & services → Add integration → LISA*: pick hockey or tennis, find your club, and log
+Then *Settings → Devices & services → Add integration → Clubprogramma*: pick hockey or tennis, find your club, and log
 in with your club membership number (or federation number) and the password of the LISA app.
 
 ## Example
@@ -97,4 +98,5 @@ examples or tests.
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE). The icon is drawn from [Material Design Icons](https://pictogrammers.com/library/mdi/)
+(Apache 2.0).

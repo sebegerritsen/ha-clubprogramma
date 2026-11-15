@@ -4,7 +4,7 @@ set_presence:
       required: true
       selector:
         device:
-          integration: lisa
+          integration: clubprogramma
     activity_id:
       required: true
       example: "0f9d1c7e-…"

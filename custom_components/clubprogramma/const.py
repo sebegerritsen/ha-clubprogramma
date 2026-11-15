@@ -6,7 +6,7 @@ from datetime import timedelta
 import logging
 from typing import Final
 
-DOMAIN: Final = "lisa"
+DOMAIN: Final = "clubprogramma"
 LOGGER = logging.getLogger(__package__)
 
 # Sports and the LISA web app that serves them. The web app's bundle holds the API

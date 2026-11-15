@@ -1,5 +1,5 @@
 [project]
-name = "ha-lisa"
+name = "ha-clubprogramma"
 version = "0.1.0"
 description = "Home Assistant integration for LISA club software: trainings, matches and attendance"
 license = "MIT"
@@ -23,6 +23,6 @@ ignore = ["PLR0913", "PLR2004", "S101", "RUF001", "RUF002"]
 "tests/*" = ["S", "PLR"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["custom_components.lisa"]
+known-first-party = ["custom_components.clubprogramma"]
 force-sort-within-sections = true
 combine-as-imports = true

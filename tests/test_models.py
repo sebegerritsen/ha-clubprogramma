@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from datetime import UTC, datetime
 
-from custom_components.lisa.models import KIND_TEAM_EVENT, Club, Tile
+from custom_components.clubprogramma.models import KIND_TEAM_EVENT, Club, Tile
 
 
 def test_team_event_and_duty() -> None:

@@ -1,11 +1,11 @@
 blueprint:
-  name: LISA – give attendance from a notification
+  name: Clubprogramma – give attendance from a notification
   description: >-
     Every day at a set time, asks for each of a family member's coming activities that has no
     answer yet (the member's *Attendance to give* sensor), with the buttons Present and Absent.
     Tapping one tells LISA; the team sees it.
   domain: automation
-  source_url: https://github.com/sebegerritsen/ha-lisa/blob/main/blueprints/automation/lisa/presence_buttons.yaml
+  source_url: https://github.com/sebegerritsen/ha-clubprogramma/blob/main/blueprints/automation/clubprogramma/presence_buttons.yaml
   input:
     member_device:
       name: Family member
@@ -13,7 +13,7 @@ blueprint:
       selector:
         device:
           filter:
-            - integration: lisa
+            - integration: clubprogramma
     notify_device:
       name: Phone
       selector:
@@ -75,7 +75,7 @@ actions:
         sequence:
           - variables:
               parts: "{{ trigger.event.data.action.split('|') }}"
-          - action: lisa.set_presence
+          - action: clubprogramma.set_presence
             data:
               device_id: "{{ member }}"
               status: "{{ parts[2] }}"

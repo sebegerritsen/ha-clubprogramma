@@ -18,11 +18,11 @@ from pytest_homeassistant_custom_component.common import (
 )
 from pytest_homeassistant_custom_component.test_util.aiohttp import AiohttpClientMocker
 
-from custom_components.lisa.const import DOMAIN
+from custom_components.clubprogramma.const import DOMAIN
 
 from .conftest import API, NOW, calls_to
 
-BLUEPRINTS = Path(__file__).parent.parent / "blueprints" / "automation" / "lisa"
+BLUEPRINTS = Path(__file__).parent.parent / "blueprints" / "automation" / "clubprogramma"
 NOTIFY = "- device_id: !input notify_device"
 URL_TRAINING_PRESENCE = (
     f"{API}/clubs/club-1/trainings/train-a1/teams/team-1/members/m-alex/presences"
@@ -56,7 +56,7 @@ def _install(hass: HomeAssistant, tmp_path: Path, name: str) -> None:
             continue
         out.append(line)
         i += 1
-    target = tmp_path / "blueprints" / "automation" / "lisa" / name
+    target = tmp_path / "blueprints" / "automation" / "clubprogramma" / name
     target.parent.mkdir(parents=True)
     target.write_text("\n".join(out) + "\n", encoding="utf-8")
     hass.config.config_dir = str(tmp_path)
@@ -69,7 +69,7 @@ async def _automation(hass: HomeAssistant, name: str, inputs: dict[str, Any]) ->
         {
             "automation": {
                 "use_blueprint": {
-                    "path": f"lisa/{name}",
+                    "path": f"clubprogramma/{name}",
                     "input": {"notify_device": "phone", **inputs},
                 }
             }

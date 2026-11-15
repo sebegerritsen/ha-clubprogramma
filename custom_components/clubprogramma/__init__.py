@@ -76,8 +76,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: LisaConfigEntry) -> bool
         config_entry_id=entry.entry_id,
         identifiers={(DOMAIN, entry.data[CONF_MEMBER_ID])},
         name=entry.data.get(CONF_CLUB_SHORT) or entry.data.get(CONF_CLUB_NAME),
-        manufacturer="LISA",
-        model=entry.data.get(CONF_CLUB_NAME),
+        manufacturer=entry.data.get(CONF_CLUB_NAME),
         entry_type=dr.DeviceEntryType.SERVICE,
     )
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)

@@ -17,7 +17,7 @@ from .models import KIND_MATCH, KIND_TEAM_EVENT, KIND_TRAINING, Club, Tile
 
 _LOGGER = logging.getLogger(__name__)
 
-USER_AGENT = "ha-lisa (+https://github.com/sebegerritsen/ha-lisa)"
+USER_AGENT = "ha-clubprogramma (+https://github.com/sebegerritsen/ha-clubprogramma)"
 TIMEOUT = aiohttp.ClientTimeout(total=30)
 # The program comes in pages; follow at most this many.
 MAX_PROGRAM_PAGES = 4

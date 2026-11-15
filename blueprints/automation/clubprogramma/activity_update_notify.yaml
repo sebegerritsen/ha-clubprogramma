@@ -1,18 +1,18 @@
 blueprint:
-  name: LISA – notify on activity changes
+  name: Clubprogramma – notify on activity changes
   description: >-
     Sends a notification to a phone when a family member's training, match or team event is
     cancelled, back on, rescheduled, or gets a new meet time. Uses the *Activity update* entity
     of the LISA integration.
   domain: automation
-  source_url: https://github.com/sebegerritsen/ha-lisa/blob/main/blueprints/automation/lisa/activity_update_notify.yaml
+  source_url: https://github.com/sebegerritsen/ha-clubprogramma/blob/main/blueprints/automation/clubprogramma/activity_update_notify.yaml
   input:
     update_entity:
       name: Activity update entity
       selector:
         entity:
           filter:
-            - integration: lisa
+            - integration: clubprogramma
               domain: event
     notify_device:
       name: Phone

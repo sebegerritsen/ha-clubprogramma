@@ -13,7 +13,7 @@ from pytest_homeassistant_custom_component.test_util.aiohttp import (
     AiohttpClientMockResponse,
 )
 
-from custom_components.lisa.api import (
+from custom_components.clubprogramma.api import (
     Credentials,
     LisaAuthError,
     LisaClient,

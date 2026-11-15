@@ -1,18 +1,18 @@
 blueprint:
-  name: LISA – reminder before the meet time
+  name: Clubprogramma – reminder before the meet time
   description: >-
     Reminds you a set time before a family member's team meets for the next match (the member's
     *Meet time* sensor, as the team set it in LISA), with the venue and address. Add travel time to
     the lead time: the meet time is when you need to be there.
   domain: automation
-  source_url: https://github.com/sebegerritsen/ha-lisa/blob/main/blueprints/automation/lisa/meeting_time_reminder.yaml
+  source_url: https://github.com/sebegerritsen/ha-clubprogramma/blob/main/blueprints/automation/clubprogramma/meeting_time_reminder.yaml
   input:
     meet_time_entity:
       name: Meet time sensor
       selector:
         entity:
           filter:
-            - integration: lisa
+            - integration: clubprogramma
               domain: sensor
               device_class: timestamp
     notify_device:

@@ -29,8 +29,7 @@ class LisaMemberEntity(LisaEntity):
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, f"{account}_{member_id}")},
             name=member.first_name if member else member_id,
-            manufacturer="LISA",
-            model=coordinator.config_entry.data.get(CONF_CLUB_NAME),
+            manufacturer=coordinator.config_entry.data.get(CONF_CLUB_NAME),
             entry_type=DeviceEntryType.SERVICE,
         )
 
@@ -47,7 +46,6 @@ class LisaAccountEntity(LisaEntity):
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, account)},
             name=data.get(CONF_CLUB_SHORT) or data.get(CONF_CLUB_NAME),
-            manufacturer="LISA",
-            model=data.get(CONF_CLUB_NAME),
+            manufacturer=data.get(CONF_CLUB_NAME),
             entry_type=DeviceEntryType.SERVICE,
         )

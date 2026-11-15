@@ -21,8 +21,8 @@ from pytest_homeassistant_custom_component.test_util.aiohttp import (
     AiohttpClientMockResponse,
 )
 
-from custom_components.lisa.const import CONF_BASIC, DOMAIN, UPDATE_INTERVAL
-from custom_components.lisa.diagnostics import async_get_config_entry_diagnostics
+from custom_components.clubprogramma.const import CONF_BASIC, DOMAIN, UPDATE_INTERVAL
+from custom_components.clubprogramma.diagnostics import async_get_config_entry_diagnostics
 
 from .conftest import BASIC, NOW, URL_LOGIN, URL_PROGRAM, load_fixture
 
