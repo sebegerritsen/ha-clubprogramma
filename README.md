@@ -43,17 +43,17 @@ Ready-made automations that send a notification to your phone (Home Assistant ap
 
 | Blueprint | What it does | |
 |---|---|---|
-| Notify on activity changes | cancelled, back on, rescheduled, new meet time | [![Import blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fsebegerritsen%2Fha-clubprogramma%2Fblob%2Fmain%2Fblueprints%2Fautomation%2Flisa%2Factivity_update_notify.yaml) |
-| Give attendance from a notification | daily at a set time, one notification per activity without an answer, with **Present** / **Absent** buttons that tell LISA | [![Import blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fsebegerritsen%2Fha-clubprogramma%2Fblob%2Fmain%2Fblueprints%2Fautomation%2Flisa%2Fpresence_buttons.yaml) |
-| Reminder before the meet time | a set time before the team meets for the next match, with venue and address | [![Import blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fsebegerritsen%2Fha-clubprogramma%2Fblob%2Fmain%2Fblueprints%2Fautomation%2Flisa%2Fmeeting_time_reminder.yaml) |
+| Notify on activity changes | cancelled, back on, rescheduled, new meet time | [![Import blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fsebegerritsen%2Fha-clubprogramma%2Fblob%2Fmain%2Fblueprints%2Fautomation%2Fclubprogramma%2Factivity_update_notify.yaml) |
+| Give attendance from a notification | daily at a set time, one notification per activity without an answer, with **Present** / **Absent** buttons that tell LISA | [![Import blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fsebegerritsen%2Fha-clubprogramma%2Fblob%2Fmain%2Fblueprints%2Fautomation%2Fclubprogramma%2Fpresence_buttons.yaml) |
+| Reminder before the meet time | a set time before the team meets for the next match, with venue and address | [![Import blueprint](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fsebegerritsen%2Fha-clubprogramma%2Fblob%2Fmain%2Fblueprints%2Fautomation%2Fclubprogramma%2Fmeeting_time_reminder.yaml) |
 
 ## How it connects
 
 The same way LISA's own web app for members (`mijn.lisahockey.nl`, for tennis `leden.knltb.club`) does:
 the web app's public API user plus your member login. The integration reads that public user from the web
 app when you set it up (and again if LISA changes it), and logs in again by itself when its session expires.
-Your number and password are stored in Home Assistant like any other integration's login. See
-[docs/api.md](docs/api.md).
+Your number and password are stored in Home Assistant like any other integration's login and are sent only
+to LISA. See [docs/api.md](docs/api.md). If LISA asks us to change or stop something, we will.
 
 It polls every 15 minutes.
 

@@ -22,6 +22,14 @@ Decided (Nov 2026):
   on 14 Nov 2026; it changes real data in LISA that the team sees. Signing up for duties is not in it yet.
 - One config entry per LISA login (one member, who sees their family). A device per family member.
 
+## Releasing
+
+HACS installs from GitHub releases. For a new version: bump `version` in
+`custom_components/clubprogramma/manifest.json`, commit, wait for CI (Tests + Validate) to pass, then
+`gh release create vX.Y.Z --title vX.Y.Z --notes "…"` (the tag must match the manifest version; a full release,
+not just a tag). A README-only change needs no release. Submitted to the HACS default list on 15 Nov 2026
+(hacs/default PR #14207); never ask HACS maintainers for a review, it gets the PR closed.
+
 ## Testing locally
 
 Copy `custom_components/clubprogramma` into your Home Assistant `custom_components/` folder and restart Home
