@@ -296,7 +296,17 @@ async def test_diagnostics_without_names(
     await _setup(hass, config_entry)
     diagnostics = await async_get_config_entry_diagnostics(hass, config_entry)
     text = json_bytes(diagnostics).decode()
-    for secret in ("Alex", "Sam", "Robin", "12345", "geheim", "token-1", BASIC):
+    for secret in (
+        "Alex",
+        "Sam",
+        "Robin",
+        "m-parent",
+        "m-alex",
+        "12345",
+        "geheim",
+        "token-1",
+        BASIC,
+    ):
         assert secret not in text
     assert diagnostics["tiles"] == {
         "match": 3,

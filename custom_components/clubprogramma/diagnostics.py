@@ -8,16 +8,16 @@ from typing import Any
 from homeassistant.components.diagnostics import async_redact_data
 from homeassistant.core import HomeAssistant
 
-from .const import CONF_BASIC, CONF_NUMBER, CONF_PASSWORD, CONF_TOKEN
+from .const import CONF_BASIC, CONF_MEMBER_ID, CONF_NUMBER, CONF_PASSWORD, CONF_TOKEN
 from .coordinator import LisaConfigEntry
 
-TO_REDACT = {CONF_BASIC, CONF_NUMBER, CONF_PASSWORD, CONF_TOKEN, "title"}
+TO_REDACT = {CONF_BASIC, CONF_MEMBER_ID, CONF_NUMBER, CONF_PASSWORD, CONF_TOKEN}
 
 
 async def async_get_config_entry_diagnostics(
     hass: HomeAssistant, entry: LisaConfigEntry
 ) -> dict[str, Any]:
-    """Return diagnostics: no names, numbers, passwords or tokens."""
+    """Return diagnostics: no names, member ids, numbers, passwords or tokens."""
     coordinator = entry.runtime_data
     data = coordinator.data
     return {

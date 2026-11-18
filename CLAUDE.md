@@ -28,7 +28,9 @@ HACS installs from GitHub releases. For a new version: bump `version` in
 `custom_components/clubprogramma/manifest.json`, commit, wait for CI (Tests + Validate) to pass, then
 `gh release create vX.Y.Z --title vX.Y.Z --notes "…"` (the tag must match the manifest version; a full release,
 not just a tag). A README-only change needs no release. Submitted to the HACS default list on 15 Nov 2026
-(hacs/default PR #14207); never ask HACS maintainers for a review, it gets the PR closed.
+(hacs/default PR #14207). frenck's review (17 Nov 2026) asked for `member_id` to be redacted in diagnostics,
+fixed in v0.1.1: anything that identifies the logged-in member (ids, numbers, names) stays out of diagnostics.
+Never ask HACS maintainers for a review unless they ask for one: unsolicited requests get PRs closed.
 
 ## Testing locally
 

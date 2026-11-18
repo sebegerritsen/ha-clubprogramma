@@ -63,10 +63,13 @@ Requires Home Assistant 2025.12 or newer.
 
 [![Open your Home Assistant instance and open this repository in HACS](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=sebegerritsen&repository=ha-clubprogramma&category=integration)
 
-**HACS** (since Home Assistant 2026.11 part of the built-in *Marketplace*): add
-`https://github.com/sebegerritsen/ha-clubprogramma` as a custom repository of type *Integration*, install **Clubprogramma**
-and restart Home Assistant. **Manually:** copy `custom_components/clubprogramma` into your `custom_components`
-folder and restart.
+**HACS** (since Home Assistant 2026.11 part of the built-in *Marketplace*): search for **Clubprogramma** (or use
+the button above), install it and restart Home Assistant.
+
+If it doesn't show up, add `https://github.com/sebegerritsen/ha-clubprogramma` as a custom repository of type
+*Integration* first, then install it the same way.
+
+**Manually:** copy `custom_components/clubprogramma` into your `custom_components` folder and restart.
 
 Then *Settings → Devices & services → Add integration → Clubprogramma*: pick hockey or tennis, find your club, and log
 in with your club membership number (or federation number) and the password of the LISA app.
